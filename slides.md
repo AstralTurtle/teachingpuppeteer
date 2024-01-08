@@ -14,9 +14,14 @@ style: p { font-size: 30px;}
 #### Bronx Science Hack Club 2024
 
 <br>
-<br>
 
 ###### By: Aaron James
+
+[Attendence](https://forms.gle/gY5a572BcemiPLb68)\
+[Example Scipt Link](https://github.com/AstralTurtle/teachingpuppeteer/blob/main/index.js)
+[Replit Link](https://replit.com/@vinne329vinne32/webscrape?v=1#index.js)
+
+![bg right height:500px](./imgs/qrcode.png)
 
 ---
 
@@ -77,6 +82,23 @@ This code tells NodeJS that you will be using the puppeteer library, and will be
 
 ---
 
+# Providing Links
+
+```js
+let links = [
+	"https://a.co/d/gxzHqin",
+	"https://a.co/d/9L88wto",
+	"https://a.co/d/f3UI2ww",
+];
+let prices = [];
+```
+
+At the top of the page, we make an array named links, and fill it with amazon links. These are the links for the products we are comparing.
+
+Afterwards, we create an empty array named prices, where we store the prices in in the get prices function.
+
+---
+
 # Accessing Data
 
 ![bg left width:100%](./imgs/getPrice.png)
@@ -98,22 +120,23 @@ In order, these lines open a browser, create a new tab, and then set the address
 
 # Getting the Data
 
-<style scoped>
-.notes {
+<style>
+h6 {
  font-size: 15px;
+}
+p {
+  font-size: 25px;
 }
 </style>
 
 Next we need to get the data from the webpage.
 ![bg left height:285px](./imgs/getPrices2.png)
 
-We call `page.evaluate();`, which takes a function as a parameter and executes it on the page asynchronously, returning whatever the function returns.
+We call `page.evaluate();`, which takes a function as a parameter and executes it on the page asynchronously, returning the data the function returns.
 
-After getting the price from the website, we push it to an array called prices.
+Inside of `page.evaulate()`, we make an an unnamed function with `() => {}` and select the price with `document.querySelector()`, which uses css selectors to select html elements.
 
-<p class="notes"> 
-  The prices array doesn't exist yet, but it is just an empty array at the beginning of your program.
-</p>
+###### The prices array doesn't exist yet, but it is just an empty array at the beginning of your program.
 
 ---
 
